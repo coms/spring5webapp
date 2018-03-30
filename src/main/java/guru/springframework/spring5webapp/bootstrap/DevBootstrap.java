@@ -6,7 +6,6 @@ import guru.springframework.spring5webapp.model.Publisher;
 import guru.springframework.spring5webapp.repositories.AuthorRepository;
 import guru.springframework.spring5webapp.repositories.BookRepository;
 import guru.springframework.spring5webapp.repositories.PublisherRepository;
-
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -33,6 +32,11 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent> 
     }
 
     private void initData(){
+
+        Publisher publisher = new Publisher();
+        publisher.setName("foo");
+        publisher.setAddress("12th Street, LA");
+        publisherRepository.save(publisher);
 
         //Eric
         Author eric = new Author("Eric", "Evans");
